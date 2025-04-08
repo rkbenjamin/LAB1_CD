@@ -38,7 +38,6 @@ m_t_inst=m_t_inst(1:length(t));
 M_t=fft(m_t);
 M_t_nat=fft(m_t_nat);
 M_t_inst=fft(m_t_inst);
-% Frequency axis for plotting
 f_axis=(0:(length(t)-1))*(1/(ls*tm));
 
 figure;
@@ -75,7 +74,7 @@ xlabel('Frecuencia (Hz)');
 ylabel('Magnitud');
 
 bit_depth=8;
-pcm_levels=2^bit_depth; % Total PCM levels
+pcm_levels=2^bit_depth;
 
 pcm_signal_inst=round((m_t_inst+1)*(pcm_levels-1)/2);
 grid on;
