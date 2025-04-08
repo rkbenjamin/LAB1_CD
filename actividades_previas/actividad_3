@@ -1,27 +1,22 @@
 clc;
 close all;
 clear all;
-% parámetros de configuración
-A = 1; % Amplitud
-fm = 100000; % Hz
-tm = 1/fm; % segundos
-ls = 200; % largo de la señal
-f_c = 1000; % Hz
-f_s = 5000; % Hz
-t_s = 1/f_s; % segundos
-tau = 0.5*t_s; % segundos
-d = tau/t_s; % ciclo de trabajo
+A = 1;
+fm = 100000;
+tm = 1/fm;
+ls = 200;
+f_c = 1000;
+f_s = 5000;
+t_s = 1/f_s;
+tau = 0.5*t_s;
+d = tau/t_s;
 
-% vectores
 t = (0:ls-1)*tm;
 m_t = sin(2*pi*f_c*t);
 
-% auxiliaries
 r = floor(t_s/tm);
 s = floor(tau/tm);
 disp(r)
-
-% muestreo instantaneo
 m_t_inst = zeros(1,length(t));
 for i=1:length(m_t)
 if mod(i,r)==0
